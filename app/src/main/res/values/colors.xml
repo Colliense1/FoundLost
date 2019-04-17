@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FF954CFB</color>
+    <color name="colorPrimaryDark">#FF954CFB</color>
+    <color name="colorAccent">#FF4081</color>
+
+
+    <color name="colorroundedCornerUserEditText">#dddddd</color>
+    <color name="colorroundedCornerOwnerEditText">#d0aad3ff</color>
+    <color name="colorroundedCornerButton">#ddBD96FF</color>
+
+
+</resources>

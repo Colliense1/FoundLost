@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Found Lost</string>
+
+    //first_activity
+    <string name="service_name">Lost &amp; Found</string>
+    <string name="user_button">User</string>
+    <string name="admin_button">Admin</string>
+</resources>

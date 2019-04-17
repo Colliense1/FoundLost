@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FAF9FA"
+    tools:context=".Activity.AdminAdding">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imgview_ic_owner_signup"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5"
+            android:scaleType="centerCrop"
+            android:src="@drawable/background_material_main" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight=".1" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text=""
+                android:textColor="#fff"
+                android:textSize="40sp"
+                android:textStyle="bold" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_marginTop="12.0dip"
+                android:weightSum="1.0">
+
+                <EditText
+                    android:id="@+id/editText_yourdepartmentname"
+                    android:layout_width="0dp"
+                    android:layout_height="?actionBarSize"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/rounded_corner_button"
+                    android:hint="Your Department name"
+                    android:paddingLeft="25dp"
+                    android:textColor="#000"
+                    android:textColorHint="#232323" />
+
+            </LinearLayout>
+
+
+            <EditText
+                android:id="@+id/editTextPhoneNumber"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:layout_margin="10dp"
+                android:background="@drawable/rounded_corner_button"
+                android:drawableLeft="@drawable/ic_phone_black_24dp"
+                android:drawablePadding="12.0dip"
+                android:hint="Phone Number"
+                android:inputType="number"
+                android:maxEms="11"
+                android:maxLines="1"
+                android:paddingStart="10dp"
+                android:paddingLeft="10dp"
+                android:textColor="#000"
+                android:textColorHint="#232323"
+                android:textSize="17sp" />
+
+            <EditText
+                android:id="@+id/editTextId"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:layout_margin="10dp"
+                android:background="@drawable/rounded_corner_button"
+                android:drawableLeft="@drawable/ic_perm_identity_black_24dp"
+                android:drawablePadding="12.0dip"
+                android:hint="Enter your ID"
+                android:inputType="textEmailAddress"
+                android:maxEms="10"
+                android:maxLines="1"
+                android:paddingStart="10dp"
+                android:paddingLeft="10dp"
+                android:textColor="#000"
+                android:textColorHint="#232323"
+                android:textSize="17sp" />
+
+            <EditText
+                android:id="@+id/editTextEmail"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:layout_margin="10dp"
+                android:background="@drawable/rounded_corner_button"
+                android:drawableLeft="@drawable/ic_email_black_24dp"
+                android:drawablePadding="12.0dip"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:maxEms="10"
+                android:maxLines="1"
+                android:paddingStart="10dp"
+                android:paddingLeft="10dp"
+                android:textColor="#000"
+                android:textColorHint="#232323"
+                android:textSize="17sp" />
+
+            <EditText
+                android:id="@+id/editTextAddress"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:layout_margin="10dp"
+                android:background="@drawable/rounded_corner_button"
+                android:drawableLeft="@drawable/ic_add_location_black_24dp"
+                android:drawablePadding="12.0dip"
+                android:hint="Location"
+                android:inputType="text"
+                android:paddingStart="10dp"
+                android:paddingLeft="10dp"
+                android:textColor="#000"
+                android:textColorHint="#232323"
+                android:textSize="17sp" />
+
+            <EditText
+                android:id="@+id/editTextDescription"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:layout_margin="10dp"
+                android:background="@drawable/rounded_corner_button"
+                android:drawableLeft="@drawable/ic_description_black_24dp"
+                android:drawablePadding="12.0dip"
+                android:hint="Description"
+                android:inputType="text"
+                android:paddingStart="10dp"
+                android:paddingLeft="10dp"
+                android:textColor="#000"
+                android:textColorHint="#232323"
+                android:textSize="17sp" />
+
+
+
+            <Button
+                android:id="@+id/button_add"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_marginTop="15.0dip"
+                android:background="@drawable/user_rounded_corner_edittext"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="ADD"
+                android:textColor="#080808"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:progressDrawable="@drawable/circular_progress_view" />
+
+
+</RelativeLayout>

@@ -48,6 +48,16 @@
 
     </android.support.v7.widget.Toolbar>
 
+    <android.support.v7.widget.SearchView
+        android:id="@+id/searchView"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:padding="8dp"
+        app:queryHint="Search"
+        android:layout_margin="5dp">
+
+    </android.support.v7.widget.SearchView>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -63,6 +73,7 @@
                 android:id="@+id/recyclerView_AdminAddData"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:padding="8dp"
                 android:nestedScrollingEnabled="false">
 
             </android.support.v7.widget.RecyclerView>

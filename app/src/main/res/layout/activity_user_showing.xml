@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.widget.LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -41,26 +42,81 @@
                 android:layout_height="match_parent"
                 android:layout_weight="2"
                 android:gravity="center"
-                android:onClick="addNewData"
-                android:text="Add new"
                 android:textSize="20sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
     </android.support.v7.widget.Toolbar>
 
-    <android.support.v7.widget.RecyclerView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/recyclerview_showData">
+        android:layout_height="match_parent">
 
-    </android.support.v7.widget.RecyclerView>
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/CardView_Addnew"
+            android:layout_alignParentTop="true">
 
-    <android.support.v7.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/recyclerview_showlostData">
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerview_showData"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false">
 
-    </android.support.v7.widget.RecyclerView>
+            </android.support.v7.widget.RecyclerView>
 
+        </android.support.v4.widget.NestedScrollView>
+
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerview_showlostData"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false">
+
+            </android.support.v7.widget.RecyclerView>
+
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/CardView_Addnew"
+            android:layout_width="fill_parent"
+            android:layout_height="64.0dip"
+            android:layout_alignParentBottom="true"
+            android:background="#fffefefe"
+            card_view:cardCornerRadius="6.0dip"
+            card_view:cardElevation="12.0dip"
+            card_view:cardUseCompatPadding="false">
+
+            <LinearLayout
+                android:id="@+id/lineaelayout_AddNew"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_margin="8.0dip"
+                android:background="@drawable/background_button"
+                android:gravity="center"
+                android:onClick="addNewData"
+                android:orientation="horizontal"
+                android:padding="12.0dip">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icon_add"
+                    android:tint="#fff" />
+
+                <TextView
+                    android:id="@+id/textView_AddNew"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12.0dip"
+                    android:gravity="center"
+                    android:text="ADD New"
+                    android:textAllCaps="true"
+                    android:textColor="#fff"
+                    android:textSize="16.0sp" />
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+    </RelativeLayout>
 </android.widget.LinearLayout>

@@ -16,14 +16,14 @@ import com.example.colliensepodder.foundlost.R;
 
 import java.util.ArrayList;
 
+import static com.example.colliensepodder.foundlost.Activity.AdminLogin.LOGGEDIN_OWNER_PHONE;
+
 public class UserShowing extends AppCompatActivity {
 
     public RecyclerView recyclerview_showData;
     public RecyclerView recyclerview_showlostData;
 
-
     ArrayList<Data> data = new ArrayList<>();
-    ArrayList<LostData> lostData = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,34 +31,39 @@ public class UserShowing extends AppCompatActivity {
         setContentView(R.layout.activity_user_showing);
 
         recyclerview_showData = findViewById(R.id.recyclerview_showData);
-        recyclerview_showlostData = findViewById(R.id.recyclerview_showlostData);
+        //recyclerview_showlostData = findViewById(R.id.recyclerview_showlostData);
         recyclerview_showData.setLayoutManager(new LinearLayoutManager(this));
-        recyclerview_showlostData.setLayoutManager(new LinearLayoutManager(this));
-
+        //recyclerview_showlostData.setLayoutManager(new LinearLayoutManager(this));
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         data.clear();
-        lostData.clear();
-        setAllData();
-        setAlllostData();
-
+        setMyData();
     }
 
-    private void setAllData() {
-        MyDatabase myDatabase = new MyDatabase();
-        myDatabase.allData(this, new MyDatabase.AdminAllData() {
+    private void setMyData() {
+       // final ArrayList<Data> myData = new ArrayList<>();
+        MyDatabase db = new MyDatabase();
+        db.getAllData(this, new MyDatabase.AllData() {
             @Override
             public void getAllData(ArrayList<Data> data) {
+               //for (int i = 0; i < data.size(); i++) {
+                   // if (data.get(i).getPhoneNumber().equals(LOGGEDIN_OWNER_PHONE)) {
+                       // myData.add(data.get(i));
+                    //
+                   //}
+
+                //}
+
                 recyclerview_showData.setAdapter(new UserShowingAdapter(data));
+
             }
         });
-
     }
 
-    private void setAlllostData() {
+   /* private void setAlllostData() {
         MyDatabase myDatabase = new MyDatabase();
         myDatabase.lostallData(this, new MyDatabase.LostAllData() {
             @Override
@@ -67,7 +72,7 @@ public class UserShowing extends AppCompatActivity {
             }
         });
 
-    }
+    }*/
 
     public void addNewData(View view) {
         startActivity(new Intent(this,AdminAdding.class));

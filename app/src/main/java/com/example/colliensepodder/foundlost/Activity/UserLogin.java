@@ -3,6 +3,7 @@ package com.example.colliensepodder.foundlost.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,6 +29,7 @@ public class UserLogin extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_login);
+
         imgview_ic_user_login = findViewById(R.id.imgview_ic_user_login);
         editTextPhoneNumber = findViewById(R.id.editTextPhoneNumber);
         editTextPassword = findViewById(R.id.editTextPassword);
@@ -65,6 +67,7 @@ public class UserLogin extends AppCompatActivity {
                             progressBar.setVisibility(View.GONE);
                             startActivity(new Intent(UserLogin.this, SelectFoundorLost.class));
                         } else {
+                            progressBar.setVisibility(View.GONE);
                             Toast.makeText(getApplicationContext(), "Wrong username or password", Toast.LENGTH_SHORT).show();
 
                         }

@@ -18,6 +18,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MyDatabase {
 
@@ -25,8 +26,6 @@ public class MyDatabase {
     DatabaseReference userRef = databaseReference.child("user");
     DatabaseReference adminRef = databaseReference.child("admin");
     DatabaseReference dataRef = databaseReference.child("data");
-    DatabaseReference lostdataRef = databaseReference.child("lostdata");
-
 
     //User Login & SignUp
     public interface UserSignup {
@@ -68,7 +67,6 @@ public class MyDatabase {
             }
         });
     }
-
 
     //Admin Login & SignUp
     public interface AdminSignup {
@@ -112,40 +110,33 @@ public class MyDatabase {
     }
 
     //Add Data
-    public interface AdminAddData {
+    public interface AdminDataAdd {
         public void isDataAdd(Boolean IsSignIn);
     }
 
-    public interface AdminAllData {
+    public interface AllData {
         public void getAllData(ArrayList<Data> data);
     }
 
-    public void dataAdd(Context context, final Data data, final AdminAddData adminAddData) {
+    public void dataAdd(Context context, final Data data, final AdminDataAdd adminDataAdd) {
         dataRef.push().setValue(data).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
-                adminAddData.isDataAdd(true);
-
+                adminDataAdd.isDataAdd(true);
             }
-
         });
-
     }
 
-    public void allData(Context context, final AdminAllData adminAllData) {
-
+    public void getAllData(Context context, final AllData allData) {
         dataRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Boolean flag = false;
                 ArrayList<Data> data = new ArrayList<>();
                 for (DataSnapshot dsp : dataSnapshot.getChildren()) {
-
                     data.add(dsp.getValue(Data.class));
-
                 }
-                adminAllData.getAllData(data);
-
+                allData.getAllData(data);
             }
 
             @Override
@@ -154,46 +145,4 @@ public class MyDatabase {
             }
         });
     }
-
-    //LostData Add
-
-    public interface LostAddData {
-        public void isLostDataAdd(Boolean IsSignIn);
-    }
-
-    public interface LostAllData {
-        public void getLostAllData(ArrayList<LostData> lostData);
-    }
-
-    public void lostdataAdd(Context context, final LostData lostData, final LostAddData lostAddData) {
-        lostdataRef.push().setValue(lostData).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
-                lostAddData.isLostDataAdd(true);
-            }
-        });
-    }
-
-    public void lostallData(Context context, final LostAllData lostAllData) {
-        lostdataRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                Boolean flag = false;
-                ArrayList<LostData> lostData = new ArrayList<>();
-                for (DataSnapshot dsp : dataSnapshot.getChildren()) {
-
-                    lostData.add(dsp.getValue(LostData.class));
-
-                }
-                lostAllData.getLostAllData(lostData);
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-    }
-
 }

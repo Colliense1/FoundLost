@@ -2,12 +2,14 @@ package com.example.colliensepodder.foundlost.Activity;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -15,6 +17,7 @@ import com.example.colliensepodder.foundlost.Adapter.AdminAddDataDetailsAdapter;
 import com.example.colliensepodder.foundlost.Database.MyDatabase;
 import com.example.colliensepodder.foundlost.Model.Data;
 import com.example.colliensepodder.foundlost.R;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -28,11 +31,13 @@ import static com.example.colliensepodder.foundlost.Activity.AdminLogin.LOGGEDIN
 
 public class ShowAdminAddData extends AppCompatActivity {
 
-    ArrayList<Data> data;
+    public static ArrayList<Data> data;
+    public  static AdminAddDataDetailsAdapter adminAddDataDetailsAdapter;
     RecyclerView recyclerView_AdminAddData;
     ImageView imageView_back;
-    DatabaseReference databaseReference;
+    public static  DatabaseReference databaseReference;
     SearchView searchView;
+    Button email_button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +50,21 @@ public class ShowAdminAddData extends AppCompatActivity {
 
         searchView = findViewById(R.id.searchView);
         databaseReference = FirebaseDatabase.getInstance().getReference().child("data");
+
+        getData();
+        email_button = findViewById(R.id.email_button);
+
+        email_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent email = new Intent(Intent.ACTION_SEND);
+                String[] s = {""};
+                email.putExtra(Intent.EXTRA_EMAIL, s);
+                email.setType("message/rfc822");
+                startActivity(Intent.createChooser(email, "Send Email"));
+                startActivity(email);
+            }
+        });
     }
 
     @Override
@@ -104,24 +124,26 @@ public class ShowAdminAddData extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        setMyData();
-
+        setAllData();
     }
 
-    private void setMyData() {
-        final ArrayList<Data> myData = new ArrayList<>();
-        MyDatabase myDatabase = new MyDatabase();
-        myDatabase.allData(this, new MyDatabase.AdminAllData() {
+    private void setAllData() {
+        final ArrayList<Data>mydata = new ArrayList<>();
+        MyDatabase db = new MyDatabase();
+        db.getAllData(this, new MyDatabase.AllData() {
             @Override
             public void getAllData(ArrayList<Data> data) {
-                for (int i = 0; i < data.size(); i++) {
+
+                for (int i = 0; i < data.size(); i++){
                     //if (data.get(i).getPhoneNumber().equals(LOGGEDIN_OWNER_PHONE)) {
-                    myData.add(data.get(i));
-                    // }
+                        mydata.add(data.get(i));
+                   // }
+
                 }
                 recyclerView_AdminAddData.setAdapter(new AdminAddDataDetailsAdapter(data));
             }
         });
+
     }
 
     public void addNewData(View view) {
@@ -135,5 +157,37 @@ public class ShowAdminAddData extends AppCompatActivity {
 
     public void clickBack(View view) {
         this.finish();
+    }
+
+    public static  void  getData(){
+        databaseReference.child("data").addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                Data data1 = dataSnapshot.getValue(Data.class);
+                data.add(data1);
+                adminAddDataDetailsAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+                adminAddDataDetailsAdapter.notifyDataSetChanged();
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 }

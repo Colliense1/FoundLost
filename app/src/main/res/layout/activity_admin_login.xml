@@ -55,6 +55,7 @@
 
 
                 <EditText
+                    android:text="01852075058"
                     android:id="@+id/editTextPhoneNumber"
                     android:layout_width="match_parent"
                     android:layout_height="?actionBarSize"
@@ -73,6 +74,7 @@
                     android:textSize="17sp" />
 
                 <EditText
+                    android:text="12345678"
                     android:id="@+id/editTextPassword"
                     android:layout_width="match_parent"
                     android:layout_height="?actionBarSize"

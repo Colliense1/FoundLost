@@ -31,6 +31,7 @@ public class UserLostAdding extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_lost_adding);
+
         editText_yourdepartmentname = findViewById(R.id.editText_yourdepartmentname);
         editTextPhoneNumber = findViewById(R.id.editTextPhoneNumber);
         editTextId = findViewById(R.id.editTextId);
@@ -77,7 +78,7 @@ public class UserLostAdding extends AppCompatActivity {
                 lostData.setDescription(editTextDescription.getText().toString());
 
                 MyDatabase myDatabase = new MyDatabase();
-                myDatabase.lostdataAdd(UserLostAdding.this, lostData, new MyDatabase.LostAddData() {
+               /* myDatabase.lostdataAdd(UserLostAdding.this, lostData, new MyDatabase.LostAddData() {
                     @Override
                     public void isLostDataAdd(Boolean IsSignIn) {
                         if(IsSignIn==true){
@@ -87,6 +88,7 @@ public class UserLostAdding extends AppCompatActivity {
                         }
                     }
                 });
+                */
 
             }
         });

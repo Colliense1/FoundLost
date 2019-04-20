@@ -82,27 +82,16 @@
 
 
                 <TextView
-                    android:layout_marginTop="145dp"
+                    android:layout_marginTop="155dp"
                     android:id="@+id/textView_phone"
                     android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:drawableLeft="@drawable/ic_phone_white_24dp"
+                    android:layout_height="45dp"
+                    android:text="found"
+                    android:textSize="17sp"
+                    android:textColor="#fff"
+                    android:textStyle="bold"
                     android:background="@color/colorPrimary"
-                    android:gravity="center"
-                    android:paddingLeft="25dp"/>
-
-                <!--
-                <TextView
-                    android:layout_marginTop="5dp"
-                    android:id="@+id/textView_cross"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:layout_below="@+id/textView_phone"
-                    android:drawableLeft="@drawable/ic_close_white_24dp"
-                    android:background="@color/colorPrimary"
-                    android:gravity="center"
-                    android:paddingLeft="25dp"/>
-                 !-->
+                    android:gravity="center" />
 
             </RelativeLayout>
 

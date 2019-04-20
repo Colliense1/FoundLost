@@ -74,6 +74,7 @@ public class AdminLogin extends AppCompatActivity {
                             progressBar.setVisibility(View.GONE);
                             startActivity(new Intent(AdminLogin.this, ShowAdminAddData.class));
                         } else {
+                            progressBar.setVisibility(View.GONE);
                             Toast.makeText(getApplicationContext(), "Wrong Phonenumber or Password", Toast.LENGTH_SHORT).show();
 
                         }

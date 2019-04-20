@@ -2,6 +2,7 @@ package com.example.colliensepodder.foundlost.Activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -30,6 +31,7 @@ public class AdminAdding extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_adding);
+
         editText_yourdepartmentname = findViewById(R.id.editText_yourdepartmentname);
         editTextPhoneNumber = findViewById(R.id.editTextPhoneNumber);
         editTextId = findViewById(R.id.editTextId);
@@ -39,7 +41,7 @@ public class AdminAdding extends AppCompatActivity {
         button_add = findViewById(R.id.button_add);
         progressBar = findViewById(R.id.progressBar);
         progressBar.setVisibility(View.GONE);
-        editTextPhoneNumber.setText(LOGGEDIN_OWNER_PHONE);
+        //editTextPhoneNumber.setText(LOGGEDIN_OWNER_PHONE);
 
         button_add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,7 +52,8 @@ public class AdminAdding extends AppCompatActivity {
                     return;
                 }
                 data.setDepartmentName(editText_yourdepartmentname.getText().toString());
-                data.setPhoneNumber(LOGGEDIN_OWNER_PHONE);
+
+                //data.setPhoneNumber(LOGGEDIN_OWNER_PHONE);
                 data.setYourId(editTextId.getText().toString());
                 if (editTextId.getText().toString().isEmpty()){
                     editTextId.setError("Enter Id");
@@ -76,7 +79,7 @@ public class AdminAdding extends AppCompatActivity {
                 data.setDescription(editTextDescription.getText().toString());
 
                 MyDatabase myDatabase = new MyDatabase();
-                myDatabase.dataAdd(AdminAdding.this, data, new MyDatabase.AdminAddData() {
+                myDatabase.dataAdd(AdminAdding.this, data, new MyDatabase.AdminDataAdd() {
                     @Override
                     public void isDataAdd(Boolean IsSignIn) {
                         if(IsSignIn==true){

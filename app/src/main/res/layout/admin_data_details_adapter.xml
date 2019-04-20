@@ -48,20 +48,22 @@
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/textView_phoneNumber"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="Phone Number"
-                    android:textColor="#000" />
-
-                <TextView
                     android:id="@+id/textView_Id"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:text="ID"
                     android:textColor="#000" />
+
+                <TextView
+                    android:id="@+id/textView_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Email"
+                    android:textColor="#000" />
+
+
 
                 <TextView
                     android:id="@+id/textView_description"
@@ -83,21 +85,22 @@
 
 
                 <TextView
-                    android:id="@+id/textView_edit"
-                    android:layout_width="60dp"
-                    android:layout_height="100dp"
-                    android:drawableLeft="@drawable/ic_edit_black_24dp"
-                    android:gravity="center"
-                    android:paddingLeft="20dp" />
-
-                <TextView
                     android:id="@+id/textView_delete"
-                    android:layout_width="60dp"
+                    android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:drawableLeft="@drawable/ic_delete_black_24dp"
                     android:gravity="center"
-                    android:layout_below="@+id/textView_edit"
-                    android:paddingLeft="20dp" />
+                    android:paddingLeft="40dp" />
+
+                <TextView
+                    android:id="@+id/textView_phone"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:drawableLeft="@drawable/ic_phone_black_24dp"
+                    android:gravity="center"
+                    android:layout_below="@+id/textView_delete"
+                    android:paddingLeft="40dp" />
+
 
             </RelativeLayout>
 

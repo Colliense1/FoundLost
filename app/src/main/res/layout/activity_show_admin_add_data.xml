@@ -54,8 +54,8 @@
         android:id="@+id/searchView"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:padding="8dp"
-        app:queryHint="Search lost thing (Ex:Pendrive)"
+        android:padding="6dp"
+        app:queryHint="Search lost thing(Ex:Pen)/Date"
         android:layout_margin="5dp">
 
     </android.support.v7.widget.SearchView>

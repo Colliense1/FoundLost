@@ -27,7 +27,7 @@ public class Splash extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
 
         linearlayout_Splash = findViewById(R.id.linearlayout_Splash);
-        
+
         if (isconnected()) {
             new Timer().schedule(new TimerTask() {
                 @Override
@@ -41,7 +41,7 @@ public class Splash extends AppCompatActivity {
         } else {
             new AlertDialog.Builder(this)
                     .setIcon(android.R.drawable.ic_dialog_alert)
-                    .setTitle("Internet connecton Alert")
+                    .setTitle("Oops!No Internet connecton")
                     .setMessage("Please Check Your Internet Connection...!")
                     .setPositiveButton("Close", new DialogInterface.OnClickListener() {
                         @Override

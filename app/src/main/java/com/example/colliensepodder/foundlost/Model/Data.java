@@ -1,6 +1,8 @@
 package com.example.colliensepodder.foundlost.Model;
 
 public class Data {
+
+    String datePick;
     String departmentName;
     String phoneNumber;
     String address;
@@ -9,7 +11,8 @@ public class Data {
     String lostInfo;
     String yourId;
 
-    public Data(String departmentName, String phoneNumber, String address, String yourId, String description, String email, String lostInfo) {
+    public Data(String datePick,String departmentName, String phoneNumber, String address, String yourId, String description, String email, String lostInfo) {
+        this.datePick = datePick;
         this.departmentName = departmentName;
         this.phoneNumber = phoneNumber;
         this.address = address;
@@ -21,6 +24,14 @@ public class Data {
 
     public Data() {
 
+    }
+
+    public String getDatePick() {
+        return datePick;
+    }
+
+    public void setDatePick(String datePick) {
+        this.datePick = datePick;
     }
 
     public String getEmail() {

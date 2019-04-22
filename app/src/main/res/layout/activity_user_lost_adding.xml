@@ -31,19 +31,48 @@
         android:layout_height="wrap_content">
 
         <LinearLayout
+            android:layout_marginTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text=""
-                android:textColor="#fff"
-                android:textSize="40sp"
-                android:textStyle="bold" />
+                android:layout_margin="10dp"
+                android:orientation="horizontal"
+                android:weightSum="2.0">
+
+                <EditText
+                    android:id="@+id/editText_pickDate"
+                    android:layout_width="0dp"
+                    android:layout_height="?attr/actionBarSize"
+                    android:layout_weight="1.0"
+                    android:drawableEnd="@drawable/ic_arrow_down_white_24dp"
+                    android:drawableRight="@drawable/ic_arrow_down_white_24dp"
+                    android:hint="Pick Date"
+                    android:textColor="#000"
+                    android:textColorHint="#232323"
+                    android:textAlignment="center"
+                    android:background="@drawable/rounded_corner_button" />
+
+                <View
+                    android:layout_width="12.0dip"
+                    android:layout_height="1.0dip"
+                    android:background="@color/colorPrimary" />
+
+                <EditText
+                    android:id="@+id/editText_date"
+                    android:layout_width="0dp"
+                    android:layout_height="?attr/actionBarSize"
+                    android:layout_weight="1.0"
+                    android:textColor="#000"
+                    android:hint="Date"
+                    android:textAlignment="textStart"
+                    android:background="@drawable/rounded_corner_button"/>
+
+            </LinearLayout>
 
 
             <LinearLayout

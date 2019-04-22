@@ -116,6 +116,9 @@ public class ShowAdminAddData extends AppCompatActivity {
             if (object.getAddress().toLowerCase().contains(string.toLowerCase())) {
                 mydata1.add(object);
             }
+            if (object.getDatePick().toLowerCase().contains(string.toLowerCase())){
+                mydata1.add(object);
+            }
         }
         AdminAddDataDetailsAdapter adminAddDataDetailsAdapter = new AdminAddDataDetailsAdapter(mydata1);
         recyclerView_AdminAddData.setAdapter(adminAddDataDetailsAdapter);

@@ -60,6 +60,7 @@ public class AdminAddDataDetailsAdapter extends RecyclerView.Adapter<AdminAddDat
         holder.textView_email.setText(data.get(position).getEmail().toString());
         holder.textView_description.setText(data.get(position).getDescription().toString());
         holder.textView_Id.setText(data.get(position).getYourId().toString());
+        holder.textView_Date.setText(data.get(position).getDatePick().toString());
 
         holder.textView_delete.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,9 +89,6 @@ public class AdminAddDataDetailsAdapter extends RecyclerView.Adapter<AdminAddDat
 
             }
         });
-
-
-
     }
 
     @Override
@@ -108,6 +106,7 @@ public class AdminAddDataDetailsAdapter extends RecyclerView.Adapter<AdminAddDat
         TextView textView_delete;
         TextView textView_email;
         TextView textView_Id;
+        TextView textView_Date;
 
 
         public ViewHolder(View itemView) {
@@ -120,6 +119,7 @@ public class AdminAddDataDetailsAdapter extends RecyclerView.Adapter<AdminAddDat
             textView_delete = itemView.findViewById(R.id.textView_delete);
             textView_email = itemView.findViewById(R.id.textView_email);
             textView_Id = itemView.findViewById(R.id.textView_Id);
+            textView_Date = itemView.findViewById(R.id.textView_Date);
 
         }
     }

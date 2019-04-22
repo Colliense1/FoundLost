@@ -41,6 +41,7 @@ public class UserShowingAdapter extends RecyclerView.Adapter<UserShowingAdapter.
         holder.textView_email.setText(data.get(position).getEmail().toString());
         holder.textView_description.setText(data.get(position).getDescription().toString());
         holder.textView_Id.setText(data.get(position).getYourId().toString());
+        holder.textView_Date.setText(data.get(position).getDatePick().toString());
 
         holder.textView_phone.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,6 +79,7 @@ public class UserShowingAdapter extends RecyclerView.Adapter<UserShowingAdapter.
         TextView textView_description;
         TextView textView_Id;
         TextView textView_phone;
+        TextView textView_Date;
         //TextView textView_cross;
 
         public ViewHolder(View itemView) {
@@ -89,6 +91,7 @@ public class UserShowingAdapter extends RecyclerView.Adapter<UserShowingAdapter.
             textView_description = itemView.findViewById(R.id.textView_description);
             textView_Id = itemView.findViewById(R.id.textView_Id);
             textView_phone = itemView.findViewById(R.id.textView_phone);
+            textView_Date = itemView.findViewById(R.id.textView_Date);
             //textView_cross = itemView.findViewById(R.id.textView_cross);
         }
     }

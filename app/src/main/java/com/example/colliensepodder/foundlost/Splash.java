@@ -40,8 +40,8 @@ public class Splash extends AppCompatActivity {
             linearlayout_Splash.startAnimation(myanim);
         } else {
             new AlertDialog.Builder(this)
-                    .setIcon(android.R.drawable.ic_dialog_alert)
-                    .setTitle("Oops!No Internet connecton")
+                    .setIcon(R.drawable.ic_signal_wifi_off_24dp)
+                    .setTitle("Oops!No Internet connection")
                     .setMessage("Please Check Your Internet Connection...!")
                     .setPositiveButton("Close", new DialogInterface.OnClickListener() {
                         @Override

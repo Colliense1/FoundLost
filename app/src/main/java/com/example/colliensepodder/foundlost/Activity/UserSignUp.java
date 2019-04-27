@@ -41,8 +41,8 @@ public class UserSignUp extends AppCompatActivity {
         editTextPassword = findViewById(R.id.editTextPassword);
         editTextConfirmPassword = findViewById(R.id.editTextConfirmPassword);
         button_signup = findViewById(R.id.button_signup);
-        //progressBar = findViewById(R.id.progressBar);
-        //progressBar.setVisibility(View.GONE);
+        progressBar = findViewById(R.id.progressBar);
+        progressBar.setVisibility(View.GONE);
 
         final ProgressDialog progressDialog = new ProgressDialog(UserSignUp.this);
         progressDialog.setTitle("Loading");

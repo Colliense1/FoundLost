@@ -1,5 +1,6 @@
 package com.example.colliensepodder.foundlost;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -13,6 +14,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 
 import com.example.colliensepodder.foundlost.Activity.FirstActivity;
+import com.example.colliensepodder.foundlost.Activity.UserLogin;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -38,8 +40,11 @@ public class Splash extends AppCompatActivity {
 
             Animation myanim = AnimationUtils.loadAnimation(this, R.anim.mytransition);
             linearlayout_Splash.startAnimation(myanim);
+
         } else {
+
             new AlertDialog.Builder(this)
+
                     .setIcon(R.drawable.ic_signal_wifi_off_24dp)
                     .setTitle("Oops!No Internet connection")
                     .setMessage("Please Check Your Internet Connection...!")
@@ -47,6 +52,7 @@ public class Splash extends AppCompatActivity {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             finish();
+
                         }
                     })
                     .show();

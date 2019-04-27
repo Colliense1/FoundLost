@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FAF9FA"
-    tools:context=".Activity.AdminAdding">
+    tools:context=".Activity.FoundAdding">
 
 
     <LinearLayout
@@ -53,7 +53,6 @@
                     android:textColor="#000"
                     android:textColorHint="#232323"
                     android:hint="dd/mm/yyyy"
-                    android:inputType="date"
                     android:textAlignment="center"
                     android:background="@drawable/rounded_corner_button"/>
 

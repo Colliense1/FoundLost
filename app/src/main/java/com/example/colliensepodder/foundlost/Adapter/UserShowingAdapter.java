@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.colliensepodder.foundlost.Model.Data;
-import com.example.colliensepodder.foundlost.Model.LostData;
 import com.example.colliensepodder.foundlost.R;
 
 import java.util.ArrayList;
@@ -19,7 +18,6 @@ public class UserShowingAdapter extends RecyclerView.Adapter<UserShowingAdapter.
 
     private ArrayList<Data> data;
     Context mcontext;
-    //private ArrayList<LostData> lostData;
 
     public UserShowingAdapter(ArrayList<Data> data) {
         this.data = data;

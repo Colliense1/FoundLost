@@ -1,5 +1,6 @@
 package com.example.colliensepodder.foundlost.Activity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -40,8 +41,12 @@ public class UserSignUp extends AppCompatActivity {
         editTextPassword = findViewById(R.id.editTextPassword);
         editTextConfirmPassword = findViewById(R.id.editTextConfirmPassword);
         button_signup = findViewById(R.id.button_signup);
-        progressBar = findViewById(R.id.progressBar);
-        progressBar.setVisibility(View.GONE);
+        //progressBar = findViewById(R.id.progressBar);
+        //progressBar.setVisibility(View.GONE);
+
+        final ProgressDialog progressDialog = new ProgressDialog(UserSignUp.this);
+        progressDialog.setTitle("Loading");
+        progressDialog.setMessage("Please wait...!");
 
         button_signup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,8 +103,9 @@ public class UserSignUp extends AppCompatActivity {
                     return;
                 }
 
-                progressBar.setVisibility(View.VISIBLE);
+                //progressBar.setVisibility(View.VISIBLE);
 
+                progressDialog.show();
                User user = new User(
                         editText_firstname.getText().toString()
                         , editText_lastname.getText().toString(),
@@ -115,7 +121,8 @@ public class UserSignUp extends AppCompatActivity {
 
                         Toast.makeText(getApplicationContext(), "Signup Succesfully", Toast.LENGTH_SHORT).show();
 
-                        progressBar.setVisibility(View.GONE);
+                        progressDialog.dismiss();
+                        //progressBar.setVisibility(View.GONE);
 
                         startActivity(new Intent(UserSignUp.this, UserLogin.class));
                     }

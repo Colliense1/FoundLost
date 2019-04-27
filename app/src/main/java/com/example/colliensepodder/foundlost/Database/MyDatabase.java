@@ -3,22 +3,17 @@ package com.example.colliensepodder.foundlost.Database;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
-import com.example.colliensepodder.foundlost.Adapter.AdminAddDataDetailsAdapter;
 import com.example.colliensepodder.foundlost.Model.Admin;
 import com.example.colliensepodder.foundlost.Model.Data;
-import com.example.colliensepodder.foundlost.Model.LostData;
 import com.example.colliensepodder.foundlost.Model.User;
-import com.example.colliensepodder.foundlost.R;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class MyDatabase {
 

@@ -22,12 +22,9 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-
-import static com.example.colliensepodder.foundlost.Activity.AdminLogin.LOGGEDIN_OWNER_PHONE;
 
 public class ShowAdminAddData extends AppCompatActivity {
 
@@ -80,9 +77,11 @@ public class ShowAdminAddData extends AppCompatActivity {
                         for (DataSnapshot ds : dataSnapshot.getChildren()) {
                             data.add(ds.getValue(Data.class));
 
+
                         }
                         AdminAddDataDetailsAdapter adminAddDataDetailsAdapter = new AdminAddDataDetailsAdapter(data);
                         recyclerView_AdminAddData.setAdapter(adminAddDataDetailsAdapter);
+
                     }
 
                 }
@@ -110,7 +109,9 @@ public class ShowAdminAddData extends AppCompatActivity {
         }
     }
 
+
     private void search(String string) {
+
         ArrayList<Data> mydata1 = new ArrayList<>();
         for (Data object : data) {
             if (object.getAddress().toLowerCase().contains(string.toLowerCase())) {
@@ -122,6 +123,7 @@ public class ShowAdminAddData extends AppCompatActivity {
         }
         AdminAddDataDetailsAdapter adminAddDataDetailsAdapter = new AdminAddDataDetailsAdapter(mydata1);
         recyclerView_AdminAddData.setAdapter(adminAddDataDetailsAdapter);
+
     }
 
     @Override
@@ -162,7 +164,9 @@ public class ShowAdminAddData extends AppCompatActivity {
         this.finish();
     }
 
+
     public static  void  getData(){
+
         databaseReference.child("data").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
@@ -193,4 +197,5 @@ public class ShowAdminAddData extends AppCompatActivity {
             }
         });
     }
+
 }

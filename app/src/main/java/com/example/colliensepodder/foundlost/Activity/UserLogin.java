@@ -1,5 +1,6 @@
 package com.example.colliensepodder.foundlost.Activity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -38,6 +39,10 @@ public class UserLogin extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar);
         progressBar.setVisibility(View.GONE);
 
+        final ProgressDialog progressDialog = new ProgressDialog(UserLogin.this);
+        progressDialog.setTitle("Loading");
+        progressDialog.setMessage("Please wait...!");
+
         button_signin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,7 +59,8 @@ public class UserLogin extends AppCompatActivity {
                     return;
                 }
 
-                progressBar.setVisibility(View.VISIBLE);
+                progressDialog.show();
+                //progressBar.setVisibility(View.VISIBLE);
                 User user = new User();
                 user.setPhoneNumber(editTextPhoneNumber.getText().toString());
                 user.setPassword(editTextPassword.getText().toString());
@@ -64,10 +70,12 @@ public class UserLogin extends AppCompatActivity {
                     public void issignin(Boolean IsSignIn) {
                         if (IsSignIn == true) {
                             Toast.makeText(getApplicationContext(), "Login succesfully", Toast.LENGTH_SHORT).show();
-                            progressBar.setVisibility(View.GONE);
+                            //progressBar.setVisibility(View.GONE);
+                            progressDialog.dismiss();
                             startActivity(new Intent(UserLogin.this, SelectFoundorLost.class));
                         } else {
-                            progressBar.setVisibility(View.GONE);
+                            //progressBar.setVisibility(View.GONE);
+                            progressDialog.dismiss();
                             Toast.makeText(getApplicationContext(), "Wrong username or password", Toast.LENGTH_SHORT).show();
 
                         }
